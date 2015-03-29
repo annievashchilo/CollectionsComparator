@@ -14,47 +14,39 @@ public class Runner {
 
 	public static void main(String[] args) {
 		
-		int size = 100000;
+		int size = 50000;
 		
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		LinkedList<Integer> linkedList = new LinkedList<Integer>();
+
 		HashSet<Integer> hashSet = new HashSet<Integer>();
 		TreeSet<Integer> treeSet = new TreeSet<Integer>();
-		HashMap<Integer,Integer> hashMap = new HashMap<Integer,Integer>();
-		TreeMap<Integer,Integer> treeMap = new TreeMap<Integer,Integer>();
+		
+		HashMap<Integer,Integer> hashMap = new HashMap<Integer, Integer>();
+		TreeMap<Integer,Integer> treeMap = new TreeMap<Integer, Integer>();
 
-		System.out.println("Measure time of insert to collections");
+		System.out.println("[ Measure time of insert to collections ]");
 		CollectionsChecker.measureInsertTime(list, size);
 		CollectionsChecker.measureInsertTime(linkedList, size);
 		CollectionsChecker.measureInsertTime(hashSet, size);
 		CollectionsChecker.measureInsertTime(treeSet, size);
 		CollectionsChecker.measureInsertTime(hashMap, size); 
 		CollectionsChecker.measureInsertTime(treeMap, size); 
+				
+		System.out.println("\n[ Measure search time through collections ]");
+		CollectionsChecker.measureSearchTime(list);
+		CollectionsChecker.measureSearchTime(linkedList);
+		CollectionsChecker.measureSearchTime(hashSet);
+		CollectionsChecker.measureSearchTime(treeSet);
+		CollectionsChecker.measureSearchTime(hashMap);
+		CollectionsChecker.measureSearchTime(treeMap);
 		
-		CollectionsChecker.fillCollection(list, size);
-		CollectionsChecker.fillCollection(linkedList, size);
-		CollectionsChecker.fillCollection(hashSet, size);
-		CollectionsChecker.fillCollection(treeSet, size);
-		CollectionsChecker.fillMap(hashMap, size);
-		CollectionsChecker.fillMap(treeMap, size);
-		
-		System.out.println("\nMeasure search time through collections");
-		CollectionsChecker.measureSearchTime(list, 20);
-		CollectionsChecker.measureSearchTime(linkedList, 30435);
-		CollectionsChecker.measureSearchTime(hashSet, 42);
-		CollectionsChecker.measureSearchTime(treeSet, 0);
-		CollectionsChecker.measureSearchTime(hashMap, 100);
-		CollectionsChecker.measureSearchTime(treeMap, 500);
-		
-		System.out.println("\nMeasure time of delete element from collections");
-		CollectionsChecker.measureDeleteTime(list, 100000);
-		CollectionsChecker.measureDeleteTime(linkedList, 020);
-		CollectionsChecker.measureDeleteTime(hashSet, 30000);
-		CollectionsChecker.measureDeleteTime(treeSet, 0);
-		CollectionsChecker.measureDeleteTime(hashMap, 30);
-		CollectionsChecker.measureDeleteTime(treeMap, 14);
-		
-
+		System.out.println("\n[ Measure time of delete element from collections ]");
+		CollectionsChecker.measureDeleteTime(list);
+		CollectionsChecker.measureDeleteTime(linkedList);
+		CollectionsChecker.measureDeleteTime(hashSet);
+		CollectionsChecker.measureDeleteTime(treeSet);
+		CollectionsChecker.measureDeleteTime(hashMap);
+		CollectionsChecker.measureDeleteTime(treeMap);
 	}
-	
 }

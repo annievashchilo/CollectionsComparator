@@ -1,6 +1,7 @@
 *.class
 .classpath
 .DS_Store
+.project
 .settings/
 # Mobile Tools for Java (J2ME)
 # .mtj.tmp/
