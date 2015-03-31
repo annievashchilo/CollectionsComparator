@@ -10,11 +10,11 @@ public class Utils {
         ValueComparator bvc = new ValueComparator(c);
         TreeMap<String, Float> sorted_map = new TreeMap<String, Float>(bvc);
 
-        System.out.println("Unsorted map: " + c);
+        System.out.println("Unsorted measurements: " + c);
 
         sorted_map.putAll(c);
 
-        System.out.println("Results: " + sorted_map);
+        System.out.println("Sorted measurements:   " + sorted_map);
     }
 
     class ValueComparator implements Comparator<String> {
