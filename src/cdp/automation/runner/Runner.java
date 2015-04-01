@@ -3,6 +3,8 @@ package cdp.automation.runner;
 import cdp.automation.utils.CollectionsChecker;
 import cdp.automation.utils.Utils;
 
+import java.io.FileOutputStream;
+import java.io.PrintStream;
 import java.util.*;
 
 public class Runner {
@@ -112,6 +114,15 @@ public class Runner {
 
     public static void main(String[] args) {
         Runner runner = new Runner();
+
+        try {
+            // redirect output to the text file
+            PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
+            System.setErr(out);
+            System.setOut(out);
+        } catch(Exception err) {
+            System.err.println("Failed to open log file");
+        }
 
         runner.handleInsertOperation();
         runner.handleSearchOperation();
