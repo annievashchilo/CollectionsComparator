@@ -32,6 +32,27 @@ public class Runner {
         utils = new Utils();
     }
 
+    public static void main(String[] args) {
+        Runner runner = new Runner();
+
+        System.out.println("Comparison of collections has started");
+        System.out.println("Once the comparison is over, you can find the results in 'output.txt' file");
+        PrintStream out = null;
+        try {
+            // redirect output to the text file
+            out = new PrintStream(new FileOutputStream("output.txt"));
+            System.setErr(out);
+            System.setOut(out);
+        } catch (Exception err) {
+            System.err.println("Failed to open log file");
+        }
+
+        runner.handleInsertOperation();
+        runner.handleSearchOperation();
+        runner.handleDeleteOperation();
+    }
+
+
     public void handleInsertOperation() {
         HashMap<String, Float> map = new HashMap<String, Float>();
 
@@ -109,27 +130,5 @@ public class Runner {
         utils.sortByTime(map);
 
         map.clear();
-    }
-
-
-    public static void main(String[] args) {
-        Runner runner = new Runner();
-
-        try {
-            // redirect output to the text file
-            PrintStream out = new PrintStream(new FileOutputStream("output.txt"));
-            System.setErr(out);
-            System.setOut(out);
-        } catch(Exception err) {
-            System.err.println("Failed to open log file");
-        }
-
-        runner.handleInsertOperation();
-        runner.handleSearchOperation();
-        runner.handleDeleteOperation();
-
-
-
-
     }
 }
